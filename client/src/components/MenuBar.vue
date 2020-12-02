@@ -11,8 +11,6 @@
     <v-spacer></v-spacer>
     <search-bar/>
     </v-app-bar>
-
-    
 </template>
 
 <script>
