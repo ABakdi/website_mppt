@@ -1,10 +1,11 @@
 <template>
   <vueper-slides autoplay :touchable="false">
     <vueper-slide
-      v-for="i in 5"
+      v-for="(slide, i) in Slides"
       :key="i"
-      :title="i"
-      :content="i"
+      :title="slide.title"
+      :content="slide.content"
+      :image="slide.image"
       />
   </vueper-slides>
 </template>
@@ -16,18 +17,16 @@ import 'vueperslides/dist/vueperslides.css'
 
     name: 'slide-show',
 
+    props: {
+      Slides: Array,
+    },
+
     components: {
       VueperSlides,
       VueperSlide
     },
 
     data: () =>({
-      slides: [
-        {
-          title: 'Slide #1',
-          content: 'Slide content'
-        }
-      ]
     }),
   }
 </script>

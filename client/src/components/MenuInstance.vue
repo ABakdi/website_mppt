@@ -14,7 +14,7 @@
         v-bind="attrs"
         v-on="on"
       >
-        Menu
+      {{Menu.title}}
       </v-tab>
     </template>
 
@@ -24,7 +24,7 @@
       flat
     >
       <template 
-        v-for="(item, i) in items"
+        v-for="(item, i) in Menu.itemes"
       >
       <v-hover 
         v-slot:default="{ hover }"
@@ -35,7 +35,7 @@
           :class="{ 'on-hover': hover }"
         >
           <v-list-item-title color="white">
-            {{ item.title }}
+            {{item.title}}
           </v-list-item-title>
         </v-list-item>
       </v-hover>
@@ -49,13 +49,11 @@
   export default {
     name: 'menu-instance',
 
+    props: {
+      Menu: Object,
+    },
+
     data: () => ({
-      items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
-      ],
     }),
 };
 </script>
