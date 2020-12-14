@@ -7,6 +7,23 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+
+
+const MongoClient = require('mongodb').MongoClient;
+
+const uri = "mongodb+srv://Admin:PyjLtzbLMJ9SngXA@mpptcluster.bkxcf.mongodb.net/Mppt?retryWrites=true&w=majority";
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+client.connect(err => {
+  //const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+
+  console.log('Connected');
+  client.close();
+});
+
+
 var app = express();
 
 // view engine setup
